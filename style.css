@@ -1,0 +1,161 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: #0b2e4f;
+  text-align: center;
+}
+
+p {
+  line-height: 1.4em;
+  margin: 0.5em 0;
+}
+
+a {
+  color: #0b2e4f;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* === NAV / MENÚ === */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #0b2e4f;
+  padding: 10px;
+  gap: 8px;
+}
+
+nav button {
+  background-color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #0b2e4f;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav button:hover {
+  background-color: #0b2e4f;
+  color: white;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+#root {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+/* === LISTA DE PERSONAS === */
+.c-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.c-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.c-card:hover {
+  background-color: #eef3f7;
+  transform: scale(1.02);
+}
+
+.c-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* === DETALLE === */
+.c-detalle {
+  text-align: center;
+}
+
+.c-detalle img {
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* === FAVORITOS Y CAPTURADOS === */
+.c-favoritos, .c-capturados, .c-lista-capturados {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.c-favorito, .c-card-capturado {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #fafafa;
+}
+
+.c-favorito img, .c-card-capturado img {
+  width: 90px;
+  height: 90px;
+  border-radius: 6px;
+}
+
+/* === JUEGO (simple) === */
+button {
+  background-color: #0b2e4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #153d6b;
+}
+
+/* === INFORMACIÓN === */
+.c-informativa {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-image: url("https://ih1.redbubble.net/image.1015601036.9925/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg");
+  background-size: cover;      /* la imagen cubre toda la pantalla */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;
+  color: rgb(255, 255, 255);                /* texto legible sobre el fondo */
+}
+
+/* Sombra o fondo semitransparente para legibilidad */
+.c-informativa section, .c-informativa h2, .c-informativa p {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.c-informativa button {
+  background-color: rgba(255,255,255,0.85);
+  color: #0b2e4f;
+  font-weight: bold;
+}
