@@ -1,14 +1,18 @@
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f4f6f8;
   color: #222;
-  margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* === TITULOS Y TEXTOS === */
 h1, h2, h3 {
   color: #0b2e4f;
   text-align: center;
+  margin-bottom: 0.5em;
 }
 
 p {
@@ -26,12 +30,17 @@ a:hover {
 
 /* === NAV / MENÚ === */
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   background-color: #0b2e4f;
-  padding: 10px;
+  padding: env(safe-area-inset-top, 12px) 8px 8px; /* 🔥 espacio dinámico para móviles con notch */
   gap: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
 nav button {
@@ -42,18 +51,20 @@ nav button {
   cursor: pointer;
   color: #0b2e4f;
   font-weight: bold;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
 nav button:hover {
   background-color: #0b2e4f;
   color: white;
+  transform: scale(1.05);
 }
 
 /* === CONTENEDOR PRINCIPAL === */
 #root {
+  flex: 1;
   max-width: 900px;
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: white;
   border-radius: 8px;
@@ -98,6 +109,8 @@ nav button:hover {
 .c-detalle img {
   border-radius: 10px;
   margin-bottom: 10px;
+  width: 60%;
+  max-width: 300px;
 }
 
 /* === FAVORITOS Y CAPTURADOS === */
@@ -122,7 +135,7 @@ nav button:hover {
   border-radius: 6px;
 }
 
-/* === JUEGO (simple) === */
+/* === BOTONES GENERALES === */
 button {
   background-color: #0b2e4f;
   color: white;
@@ -131,8 +144,8 @@ button {
   padding: 6px 10px;
   margin: 4px 2px;
   cursor: pointer;
+  font-weight: bold;
 }
-
 button:hover {
   background-color: #153d6b;
 }
@@ -143,14 +156,17 @@ button:hover {
   padding: 20px;
   min-height: 100vh;
   background-image: url("https://ih1.redbubble.net/image.1015601036.9925/flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg");
-  background-size: cover;      /* la imagen cubre toda la pantalla */
-  background-position: center; /* centrada */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  color: rgb(255, 255, 255);                /* texto legible sobre el fondo */
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Sombra o fondo semitransparente para legibilidad */
-.c-informativa section, .c-informativa h2, .c-informativa p {
+.c-informativa h2, .c-informativa p {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
@@ -158,4 +174,35 @@ button:hover {
   background-color: rgba(255,255,255,0.85);
   color: #0b2e4f;
   font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* === RESPONSIVE MÓVIL === */
+@media (max-width: 600px) {
+  nav {
+    justify-content: space-around;
+    padding-top: calc(env(safe-area-inset-top, 10px) + 8px);
+  }
+
+  nav button {
+    flex: 1 1 45%;
+    font-size: 0.9em;
+  }
+
+  #root {
+    width: 95%;
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  .c-card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .c-informativa h2 {
+    font-size: 1.4em;
+  }
 }
